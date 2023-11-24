@@ -122,11 +122,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba2b161d096b34a268fa5dd36e4a65a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 867886137462005267}
   cam: {fileID: 0}
   speed: 6
+  sprintSpeed: 12
   turnSmoothTime: 0.1
-  rb: {fileID: 8983029935172949317}
+  jumpHeight: 3
+  gravity: -9.8
 --- !u!1001 &4097126156078281055
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -206,7 +207,11 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 98e0dc7a4aa373842ae4fbe63e9af3a6, type: 3}
       propertyPath: m_Materials.Array.data[5]
       value: 
-      objectReference: {fileID: 2100000, guid: aae19c1c3bdab2b4eac617f2ad47e33a, type: 2}
+      objectReference: {fileID: 2100000, guid: 57fa3384e6bd1cc40923800f046cdf8a, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 98e0dc7a4aa373842ae4fbe63e9af3a6, type: 3}
+      propertyPath: m_Materials.Array.data[6]
+      value: 
+      objectReference: {fileID: 2100000, guid: 57fa3384e6bd1cc40923800f046cdf8a, type: 2}
     - target: {fileID: 919132149155446097, guid: 98e0dc7a4aa373842ae4fbe63e9af3a6, type: 3}
       propertyPath: m_Name
       value: p_DRv7
