@@ -42,13 +42,13 @@ public class DatosEnemigos : MonoBehaviour
             }
         }
 
-        if (other.CompareTag("ArmaPlayer"))
+        /*if (other.CompareTag("ArmaPlayer"))
         {
             // Recoger la variable daño del jugador
             float daño = 10;
 
             recibirDaño(daño);
-        }
+        }*/
     }
 
     private void OnTriggerExit(Collider other)
