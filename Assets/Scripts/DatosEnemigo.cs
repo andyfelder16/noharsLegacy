@@ -22,6 +22,7 @@ public class DatosEnemigos : MonoBehaviour
 
     private void Update()
     {
+        recibirDaño(1);
         tiempoSiguienteDano -= Time.deltaTime;
         barraVidaEnemigo.value = vidaActualEnemigo;
     }
@@ -62,6 +63,7 @@ public class DatosEnemigos : MonoBehaviour
     public void recibirDaño(float daño)
     {
         vidaActualEnemigo -= daño;
+        Debug.Log(vidaActualEnemigo);
 
         if (vidaActualEnemigo <= 0)
         {

@@ -21,6 +21,8 @@ public class PuertaColider : MonoBehaviour
         else
         {
             miBoxCollider.isTrigger = false;
+            GameObject[] enemigos = GameObject.FindGameObjectsWithTag("MeleeEnemy");
+            Debug.Log(enemigos);
         }
     }
 
