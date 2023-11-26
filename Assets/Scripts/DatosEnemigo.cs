@@ -22,7 +22,7 @@ public class DatosEnemigos : MonoBehaviour
 
     private void Update()
     {
-        recibirDaño(1);
+        //recibirDaño(1);
         tiempoSiguienteDano -= Time.deltaTime;
         barraVidaEnemigo.value = vidaActualEnemigo;
     }
