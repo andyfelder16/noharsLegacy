@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class DatosJugador : MonoBehaviour
 {
@@ -9,7 +10,9 @@ public class DatosJugador : MonoBehaviour
     private float vidaActual;
     public Slider barraVidaJugador;
 
-    private int numPocionesVida = 0;
+    private int numPocionesVida;
+
+    public TMPro.TextMeshProUGUI textoPocionesVida;
 
     public GameObject panelGameOver;
 
@@ -17,13 +20,15 @@ public class DatosJugador : MonoBehaviour
     {
         vidaActual = vidaJugadorInicial;
         barraVidaJugador.value = vidaActual;
-
+        numPocionesVida = 0;
         panelGameOver.SetActive(false);
     }
 
     private void Update()
     {
         barraVidaJugador.value = vidaActual;
+
+        textoPocionesVida.text = numPocionesVida.ToString();
 
         if (Input.GetKeyDown(KeyCode.E))
         {
@@ -59,6 +64,7 @@ public class DatosJugador : MonoBehaviour
 
     public void addPocionVida()
     {
+        textoPocionesVida.color = Color.white;
         numPocionesVida++;
         Debug.Log(numPocionesVida);
     }
@@ -78,7 +84,7 @@ public class DatosJugador : MonoBehaviour
         }
         else
         {
-            Debug.Log("No tienes pociones de vida!");
+            textoPocionesVida.color = Color.red;
         }
     }
 }
