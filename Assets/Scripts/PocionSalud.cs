@@ -12,8 +12,7 @@ public class PocionSalud : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             datoJugador = other.GetComponent<DatosJugador>();
-            datoJugador.curarVida(curacion);
-            Debug.Log("Curacion aplicada desde la pocion: " + datoJugador.vidaActual);
+            datoJugador.addPocionVida();
             Destroy(gameObject);
         }
     }
