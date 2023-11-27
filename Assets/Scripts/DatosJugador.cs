@@ -39,6 +39,10 @@ public class DatosJugador : MonoBehaviour
         if (vidaActual <= 0)
         {
             panelGameOver.SetActive(true);
+
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+
             Time.timeScale = 0f;
         }
     }
@@ -50,10 +54,10 @@ public class DatosJugador : MonoBehaviour
         if (vidaActual > vidaJugadorInicial)
         {
             vidaActual = vidaJugadorInicial;
-        }      
+        }
     }
 
-    public void añadirPocionVida()
+    public void addPocionVida()
     {
         numPocionesVida++;
         Debug.Log(numPocionesVida);
@@ -67,7 +71,7 @@ public class DatosJugador : MonoBehaviour
 
     private void usarPocionVida()
     {
-        if(numPocionesVida > 0)
+        if (numPocionesVida > 0)
         {
             curarVida(20);
             restarPocionVida();

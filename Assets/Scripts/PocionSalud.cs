@@ -12,7 +12,7 @@ public class PocionSalud : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             datoJugador = other.GetComponent<DatosJugador>();
-            datoJugador.añadirPocionVida();
+            datoJugador.addPocionVida();
             Destroy(gameObject);
         }
     }
