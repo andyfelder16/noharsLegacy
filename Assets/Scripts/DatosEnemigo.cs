@@ -22,7 +22,6 @@ public class DatosEnemigos : MonoBehaviour
 
     private void Update()
     {
-        //recibirDaño(1);
         tiempoSiguienteDano -= Time.deltaTime;
         barraVidaEnemigo.value = vidaActualEnemigo;
     }
@@ -39,7 +38,6 @@ public class DatosEnemigos : MonoBehaviour
             {
                 datoJugador.recibirDano(15);
                 tiempoSiguienteDano = tiempoEntreDano;
-                Debug.Log("Daño aplicado desde el enemigo: " + datoJugador.vidaActual);
             }
         }
 
