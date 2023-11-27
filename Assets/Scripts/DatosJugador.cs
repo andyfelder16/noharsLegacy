@@ -77,14 +77,18 @@ public class DatosJugador : MonoBehaviour
 
     private void usarPocionVida()
     {
-        if (numPocionesVida > 0)
+        if (vidaActual < vidaJugadorInicial)
         {
-            curarVida(20);
-            restarPocionVida();
-        }
-        else
-        {
-            textoPocionesVida.color = Color.red;
+            if (numPocionesVida > 0)
+            {
+
+                curarVida(20);
+                restarPocionVida();
+            }
+            else
+            {
+                textoPocionesVida.color = Color.red;
+            }
         }
     }
 }

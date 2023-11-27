@@ -7,24 +7,23 @@ public class ThirdPersonMovement : MonoBehaviour
 {
     public Transform cam;
     public float speed = 6f;
-    public float sprintSpeed = 12f; // Velocidad al sprintar
+    public float sprintSpeed = 12f;
     public float turnSmoothTime = 0.1f;
     float turnSmoothVelocity;
 
-    public float jumpHeight = 3f; // Altura del salto
-    public float gravity = -9.8f; // Gravedad
+    public float jumpHeight = 3f;
+    public float gravity = -9.8f;
+
     private CharacterController controller;
     private Vector3 velocity;
+
+    private bool isJumping = false;
 
     void Start()
     {
         controller = GetComponent<CharacterController>();
-        // lock cursor:
         Cursor.lockState = CursorLockMode.Locked;
-
-        // Ocultar cursor:
         Cursor.visible = false;
-
     }
 
     void Update()
@@ -34,14 +33,19 @@ public class ThirdPersonMovement : MonoBehaviour
 
         Vector3 direction = new Vector3(horizontalInput, 0f, verticalInput).normalized;
 
+        // Lógica de salto
+        if (controller.isGrounded)
+        {
+            velocity.y = -2f; // Resetea la velocidad vertical cuando está en el suelo
+
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                isJumping = true;
+            }
+        }
+
         // Lógica de movimiento
         MovePlayer(direction);
-
-        // // Lógica de salto
-        if (Input.GetKeyDown(KeyCode.Space) && controller.isGrounded)
-        {
-            Jump();
-        }
 
         // Aplicar gravedad
         ApplyGravity();
@@ -57,7 +61,6 @@ public class ThirdPersonMovement : MonoBehaviour
 
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
 
-            // Lógica de sprint
             float currentSpeed = Input.GetKey(KeyCode.LeftShift) ? sprintSpeed : speed;
             controller.Move(moveDir.normalized * currentSpeed * Time.deltaTime);
         }
@@ -66,7 +69,7 @@ public class ThirdPersonMovement : MonoBehaviour
     void Jump()
     {
         velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
-        Debug.Log("Jumppp");
+        Debug.Log("Jump initiated. Vertical velocity: " + velocity.y);
     }
 
     void ApplyGravity()
@@ -77,7 +80,12 @@ public class ThirdPersonMovement : MonoBehaviour
         }
         else
         {
-            velocity.y = -2f;
+            // Evitar acumulación de velocidad al estar en el suelo
+            if (isJumping)
+            {
+                Jump();
+                isJumping = false;
+            }
         }
 
         controller.Move(velocity * Time.deltaTime);
