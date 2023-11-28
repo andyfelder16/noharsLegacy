@@ -28,7 +28,6 @@ public class DatosJugador : MonoBehaviour
     private void Update()
     {
         barraVidaJugador.value = vidaActual;
-
         textoPocionesVida.text = numPocionesVida.ToString();
 
         if (Input.GetKeyDown(KeyCode.E))
@@ -67,13 +66,11 @@ public class DatosJugador : MonoBehaviour
     {
         textoPocionesVida.color = Color.white;
         numPocionesVida++;
-        Debug.Log(numPocionesVida);
     }
 
     private void restarPocionVida()
     {
         numPocionesVida--;
-        Debug.Log(numPocionesVida);
     }
 
     private void usarPocionVida()

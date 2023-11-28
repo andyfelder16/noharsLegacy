@@ -59,8 +59,6 @@ public class ThirdPersonMovement : MonoBehaviour
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
 
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
-            // print "IsWalking" parameter to animator
-            Debug.Log("IsWalking: " + (direction.magnitude >= 0.1f));
             animator.SetBool("IsWalking", true);
 
             float currentSpeed = Input.GetKey(KeyCode.LeftShift) ? sprintSpeed : speed;
@@ -69,14 +67,13 @@ public class ThirdPersonMovement : MonoBehaviour
         }
         else
         {
-            animator.SetBool("IsWalking", false);
+            // animator.SetBool("IsWalking", false);
         }
     }
 
     void Jump()
     {
         velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
-        Debug.Log("Jump initiated. Vertical velocity: " + velocity.y);
     }
 
     void ApplyGravity()
@@ -87,7 +84,6 @@ public class ThirdPersonMovement : MonoBehaviour
         }
         else
         {
-            // Evitar acumulación de velocidad al estar en el suelo
             if (isJumping)
             {
                 Jump();
