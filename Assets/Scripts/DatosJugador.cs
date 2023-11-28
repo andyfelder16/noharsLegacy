@@ -15,6 +15,7 @@ public class DatosJugador : MonoBehaviour
     public TMPro.TextMeshProUGUI textoPocionesVida;
 
     public GameObject panelGameOver;
+    public Animator animator;
 
     private void Start()
     {
@@ -44,7 +45,7 @@ public class DatosJugador : MonoBehaviour
         if (vidaActual <= 0)
         {
             panelGameOver.SetActive(true);
-
+            animator.SetBool("NoLife", true);
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
 

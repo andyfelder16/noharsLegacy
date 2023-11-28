@@ -7,18 +7,17 @@ public class ThirdPersonMovement : MonoBehaviour
 {
     public Transform cam;
     public float speed = 6f;
-    public float sprintSpeed = 12f;
+    public float sprintSpeed = 14f;
     public float turnSmoothTime = 0.1f;
     float turnSmoothVelocity;
 
-    public float jumpHeight = 3f;
+    public float jumpHeight = 1f;
     public float gravity = -9.8f;
 
     private CharacterController controller;
     private Vector3 velocity;
-
+    public Animator animator;
     private bool isJumping = false;
-
     void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -60,9 +59,17 @@ public class ThirdPersonMovement : MonoBehaviour
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
 
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
+            // print "IsWalking" parameter to animator
+            Debug.Log("IsWalking: " + (direction.magnitude >= 0.1f));
+            animator.SetBool("IsWalking", true);
 
             float currentSpeed = Input.GetKey(KeyCode.LeftShift) ? sprintSpeed : speed;
             controller.Move(moveDir.normalized * currentSpeed * Time.deltaTime);
+
+        }
+        else
+        {
+            animator.SetBool("IsWalking", false);
         }
     }
 
