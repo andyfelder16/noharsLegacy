@@ -30,7 +30,7 @@ public class DatosEnemigos : MonoBehaviour
     }
 
     // CUANDO ESTEN LAS ANIMACIONES EL DAñO SE HARñ DESDE EL SCRIPT DEL JUGADOR
-    
+
     private void OnTriggerEnter(Collider other)
     {
         /*
@@ -50,8 +50,8 @@ public class DatosEnemigos : MonoBehaviour
         if (other.CompareTag("ArmaPlayer"))
         {
             Debug.Log("He tocado un arma");
-            float daño = datoJugador.daño;
-            recibirDaño(daño);
+            float danio = datoJugador.danio;
+            recibirDanio(danio);
         }
     }
     /*
@@ -64,9 +64,9 @@ public class DatosEnemigos : MonoBehaviour
     }
     */
 
-    public void recibirDaño(float daño)
+    public void recibirDanio(float danio)
     {
-        vidaActualEnemigo -= daño;
+        vidaActualEnemigo -= danio;
 
         if (vidaActualEnemigo <= 0)
         {

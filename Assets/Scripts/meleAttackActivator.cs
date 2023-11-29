@@ -6,15 +6,26 @@ public class meleAttackActivator : MonoBehaviour
 {
     // Start is called before the first frame update
     private Animator anim;
-    void Start() {
+    void Start()
+    {
         anim = GetComponent<Animator>();
-}
-void OnTriggerEnter(Collider other) {
-     if (other.gameObject.CompareTag("Player"))
-          anim.SetBool("MeleWalk", false);
-}
-void OnTriggerExit(Collider other) {
-      if (other.gameObject.CompareTag("Player"))
-         anim.SetBool("MeleWalk", true);
+    }
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            anim.SetBool("MeleWalk", false);
+            anim.SetBool("MeleAttack", true);
+        }
+
+    }
+    void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+
+            anim.SetBool("MeleWalk", true);
+            anim.SetBool("MeleAttack", false);
+        }
     }
 }

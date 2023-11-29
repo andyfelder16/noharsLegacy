@@ -9,7 +9,7 @@ public class DatosJugador : MonoBehaviour
     public float vidaJugadorInicial;
     private float vidaActual;
     public Slider barraVidaJugador;
-    public float daño;
+    public float danio;
 
     private GameObject armaPlayer;
     private BoxCollider armaPlayerCollider;
@@ -91,14 +91,14 @@ public class DatosJugador : MonoBehaviour
         if (vidaActual < vidaJugadorInicial)
         {
             if (numPocionesVida > 0)
-            { 
+            {
                 curarVida(20);
                 restarPocionVida();
             }
             else
             {
                 textoPocionesVida.color = Color.red;
-                
+
             }
         }
     }
