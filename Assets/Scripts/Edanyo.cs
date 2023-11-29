@@ -8,8 +8,15 @@ public class Edanyo : MonoBehaviour
     private float tiempoSiguienteDano;
     private DatosJugador datoJugador;
 
+    public void Start()
+    {
+        tiempoSiguienteDano = 0;
+
+    }
+
     public void Update()
     {
+        tiempoSiguienteDano -= Time.deltaTime;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -23,7 +30,7 @@ public class Edanyo : MonoBehaviour
             {
                 datoJugador.recibirDano(15);
                 tiempoSiguienteDano = tiempoEntreDano;
-                Debug.Log("Daño aplicado.");
+                Debug.Log("Daï¿½o aplicado.");
             }
         }
     }
