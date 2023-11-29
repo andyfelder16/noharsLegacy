@@ -10,6 +10,7 @@ public class DatosEnemigos : MonoBehaviour
     private float vidaActualEnemigo;
     public Slider barraVidaEnemigo;
 
+    private GameObject jugador;
     private DatosJugador datoJugador;
 
     [SerializeField] private float tiempoEntreDano;
@@ -18,6 +19,8 @@ public class DatosEnemigos : MonoBehaviour
     private void Start()
     {
         vidaActualEnemigo = vidaEnemigo;
+        jugador = GameObject.FindWithTag("Player");
+        datoJugador = jugador.GetComponent<DatosJugador>();
     }
 
     private void Update()
@@ -27,12 +30,14 @@ public class DatosEnemigos : MonoBehaviour
     }
 
     // CUANDO ESTEN LAS ANIMACIONES EL DAñO SE HARñ DESDE EL SCRIPT DEL JUGADOR
-
+    
     private void OnTriggerEnter(Collider other)
     {
+        /*
         if (other.CompareTag("Player"))
         {
-            datoJugador = other.GetComponent<DatosJugador>();
+            jugador = GameObject.FindWithTag("Player");
+            datoJugador = jugador.GetComponent<DatosJugador>();
 
             if (tiempoSiguienteDano <= 0 && datoJugador != null)
             {
@@ -40,16 +45,16 @@ public class DatosEnemigos : MonoBehaviour
                 tiempoSiguienteDano = tiempoEntreDano;
             }
         }
+        */
 
-        /*if (other.CompareTag("ArmaPlayer"))
+        if (other.CompareTag("ArmaPlayer"))
         {
-            // Recoger la variable daño del jugador
-            float daño = 10;
-
+            Debug.Log("He tocado un arma");
+            float daño = datoJugador.daño;
             recibirDaño(daño);
-        }*/
+        }
     }
-
+    /*
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -57,11 +62,11 @@ public class DatosEnemigos : MonoBehaviour
             datoJugador = null;
         }
     }
+    */
 
     public void recibirDaño(float daño)
     {
         vidaActualEnemigo -= daño;
-        Debug.Log(vidaActualEnemigo);
 
         if (vidaActualEnemigo <= 0)
         {

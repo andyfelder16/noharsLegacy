@@ -20,6 +20,7 @@ public class ThirdPersonMovement : MonoBehaviour
     private bool isJumping = false;
     void Start()
     {
+        animator = GetComponent<Animator>();
         controller = GetComponent<CharacterController>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -54,12 +55,14 @@ public class ThirdPersonMovement : MonoBehaviour
     {
         if (direction.magnitude >= 0.1f)
         {
+            animator.SetBool("IsAtacking", false);
+            animator.SetBool("IsWalking", true);    
             float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
 
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
-            animator.SetBool("IsWalking", true);
+            
 
             float currentSpeed = Input.GetKey(KeyCode.LeftShift) ? sprintSpeed : speed;
             controller.Move(moveDir.normalized * currentSpeed * Time.deltaTime);
@@ -67,12 +70,13 @@ public class ThirdPersonMovement : MonoBehaviour
         }
         else
         {
-            // animator.SetBool("IsWalking", false);
+            animator.SetBool("IsWalking", false);
         }
     }
 
     void Jump()
     {
+        animator.SetBool("IsWalking", false);
         velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
     }
 

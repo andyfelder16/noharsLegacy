@@ -9,6 +9,10 @@ public class DatosJugador : MonoBehaviour
     public float vidaJugadorInicial;
     private float vidaActual;
     public Slider barraVidaJugador;
+    public float daño;
+
+    private GameObject armaPlayer;
+    private BoxCollider armaPlayerCollider;
 
     private int numPocionesVida;
 
@@ -23,6 +27,7 @@ public class DatosJugador : MonoBehaviour
         barraVidaJugador.value = vidaActual;
         numPocionesVida = 0;
         panelGameOver.SetActive(false);
+        armaPlayer = GameObject.FindWithTag("ArmaPlayer");
     }
 
     private void Update()
@@ -33,6 +38,12 @@ public class DatosJugador : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             usarPocionVida();
+        }
+        if (Input.GetMouseButtonDown(0))
+        {
+            animator.SetBool("IsAtacking", true);
+            armaPlayerCollider = armaPlayer.GetComponent<BoxCollider>();
+            armaPlayerCollider.enabled = true;
         }
     }
 
@@ -54,11 +65,13 @@ public class DatosJugador : MonoBehaviour
 
     public void curarVida(float cura)
     {
-        vidaActual += cura;
-
-        if (vidaActual > vidaJugadorInicial)
+        if (vidaActual + cura > vidaJugadorInicial)
         {
             vidaActual = vidaJugadorInicial;
+        }
+        else
+        {
+            vidaActual += cura;
         }
     }
 
@@ -78,16 +91,22 @@ public class DatosJugador : MonoBehaviour
         if (vidaActual < vidaJugadorInicial)
         {
             if (numPocionesVida > 0)
-            {
-
+            { 
                 curarVida(20);
                 restarPocionVida();
             }
             else
             {
                 textoPocionesVida.color = Color.red;
+                
             }
         }
+    }
+    public void finalAniAtack()
+    {
+        animator.SetBool("IsAtacking", false);
+        armaPlayerCollider = armaPlayer.GetComponent<BoxCollider>();
+        armaPlayerCollider.enabled = false;
     }
 }
 

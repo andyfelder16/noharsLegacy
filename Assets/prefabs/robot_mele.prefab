@@ -563,10 +563,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f00e4c50f3154a46afb28ea883b1b14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  danoEnemigo: 10
+  danoEnemigo: 5
   vidaEnemigo: 150
-  barraVidaEnemigo: {fileID: 0}
-  tiempoEntreDano: 0
+  barraVidaEnemigo: {fileID: 4363341195545594153}
+  tiempoEntreDano: 2
 --- !u!65 &5280572699975759763
 BoxCollider:
   m_ObjectHideFlags: 0

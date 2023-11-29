@@ -7,6 +7,7 @@ TagManager:
   - enemy
   - MeleeEnemy
   - PocVida
+  - ArmaPlayer
   layers:
   - Default
   - TransparentFX
