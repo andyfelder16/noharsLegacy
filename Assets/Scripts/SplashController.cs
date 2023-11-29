@@ -13,7 +13,7 @@ public class SplashController : MonoBehaviour
         {
             UnityEngine.SceneManagement.SceneManager.LoadScene(1);
         }
-        if (Time.time > 10)
+        if (Time.time > 5)
         {
             UnityEngine.SceneManagement.SceneManager.LoadScene(1);
         }
