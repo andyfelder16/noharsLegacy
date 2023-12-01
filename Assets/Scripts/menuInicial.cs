@@ -7,7 +7,7 @@ public class MenuInicial : MonoBehaviour
 {
     public void Play()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(1);
     }
 
     public void Exit()
@@ -18,6 +18,6 @@ public class MenuInicial : MonoBehaviour
 
     public void ExitToMenu()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
     }
 }

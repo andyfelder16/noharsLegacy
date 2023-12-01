@@ -11,11 +11,11 @@ public class SplashController : MonoBehaviour
         // make that if presses any key or click the mouse, it loads the next scene
         if (Input.anyKeyDown)
         {
-            UnityEngine.SceneManagement.SceneManager.LoadScene(1);
+            UnityEngine.SceneManagement.SceneManager.LoadScene(0);
         }
         if (Time.time > 5)
         {
-            UnityEngine.SceneManagement.SceneManager.LoadScene(1);
+            UnityEngine.SceneManagement.SceneManager.LoadScene(0);
         }
     }
 }

@@ -8,7 +8,7 @@ public class PauseMenu : MonoBehaviour
 
     void Start()
     {
-        PausePanel.SetActive(false); 
+        PausePanel.SetActive(false);
     }
 
     void Update()
@@ -32,6 +32,6 @@ public class PauseMenu : MonoBehaviour
     public void ExitToMenu()
     {
         Time.timeScale = 1f;
-        UnityEngine.SceneManagement.SceneManager.LoadScene(1);
+        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
     }
 }
