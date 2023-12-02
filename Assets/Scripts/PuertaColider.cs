@@ -22,7 +22,7 @@ public class PuertaColider : MonoBehaviour
         {
             miBoxCollider.isTrigger = false;
             GameObject[] enemigos = GameObject.FindGameObjectsWithTag("MeleeEnemy");
-            Debug.Log(enemigos);
+           // Debug.Log(enemigos);
         }
     }
 

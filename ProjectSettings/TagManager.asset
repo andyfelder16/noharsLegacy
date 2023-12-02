@@ -8,6 +8,7 @@ TagManager:
   - MeleeEnemy
   - PocVida
   - ArmaPlayer
+  - Spawners
   layers:
   - Default
   - TransparentFX

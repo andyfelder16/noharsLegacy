@@ -5,11 +5,11 @@ using UnityEngine.AI;
 public class SeguirPCNM : MonoBehaviour
 {
     public NavMeshAgent agent;
-    public Transform target;
+    private Transform target;
     // Start is called before the first frame update
     void Start()
     {
-        
+        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
     // Update is called once per frame
