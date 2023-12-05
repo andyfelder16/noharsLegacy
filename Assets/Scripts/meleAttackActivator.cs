@@ -10,7 +10,7 @@ public class meleAttackActivator : MonoBehaviour
     {
         anim = GetComponent<Animator>();
     }
-    void OnTriggerEnter(Collider other)
+    void OnTriggerStay(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {

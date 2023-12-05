@@ -31,7 +31,7 @@ public class DatosEnemigos : MonoBehaviour
 
     // CUANDO ESTEN LAS ANIMACIONES EL DAñO SE HARñ DESDE EL SCRIPT DEL JUGADOR
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         /*
         if (other.CompareTag("Player"))

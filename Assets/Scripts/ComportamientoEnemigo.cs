@@ -11,6 +11,8 @@ public class ComportamientoEnemigo : MonoBehaviour
 
     private Rigidbody rb;
 
+    private bool isPushed = false;
+
     void Start()
     {
         rb = this.GetComponent<Rigidbody>();
@@ -21,7 +23,7 @@ public class ComportamientoEnemigo : MonoBehaviour
     {
         float distanciaAlJugador = Vector3.Distance(transform.position, target.position);
 
-        if (distanciaAlJugador < seguimientoRango)
+        if (distanciaAlJugador < seguimientoRango && !isPushed)
         {
             Vector3 direccionAlJugador = (target.position - transform.position);
             direccionAlJugador.y = 0f;
@@ -29,6 +31,28 @@ public class ComportamientoEnemigo : MonoBehaviour
 
             //transform.Translate(direccionAlJugador * velocidadMovimiento * Time.deltaTime, Space.World);
             rb.AddForce(direccionAlJugador * velocidadMovimiento * Time.deltaTime, ForceMode.Force);
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            if (Input.GetKeyDown(KeyCode.F) && !isPushed)
+            {
+                isPushed = true;
+                Vector3 direccionAlJugador = (target.position - transform.position);
+                direccionAlJugador.y = 0f;
+                direccionAlJugador.Normalize();
+                rb.AddForce(-direccionAlJugador * 400f, ForceMode.Impulse);
+            }
+        }
+        else
+        {
+            isPushed = false;
+            rb.velocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+
         }
     }
 }
