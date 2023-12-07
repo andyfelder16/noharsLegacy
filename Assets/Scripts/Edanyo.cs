@@ -19,14 +19,14 @@ public class Edanyo : MonoBehaviour
         tiempoSiguienteDano -= Time.deltaTime;
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player"))
         {
             datoJugador = other.GetComponent<DatosJugador>();
             tiempoSiguienteDano -= Time.deltaTime;
 
-            if(tiempoSiguienteDano <= 0 && datoJugador != null)
+            if (tiempoSiguienteDano <= 0 && datoJugador != null)
             {
                 datoJugador.recibirDano(15);
                 tiempoSiguienteDano = tiempoEntreDano;
