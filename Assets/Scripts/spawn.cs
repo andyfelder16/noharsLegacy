@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class spawn : MonoBehaviour
 {
+    [SerializeField] private int cantidade;
+
+    [SerializeField] private GameObject enemytype;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +16,17 @@ public class spawn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(cantidade > 0){
+            spawnE();
+            cantidade--;
+        }
+    }
+
+     void spawnE(){
         
+            
+            GameObject enemyClone = Instantiate(enemytype);
+       
+
     }
 }
