@@ -6,11 +6,14 @@ public class oleadas : MonoBehaviour
 {
     public bool noenemies = false;
     public int waves = 1;
-    public GameObject enemytype;
+    
     private GameObject[] sp;
     void Start()
     {
         sp = GameObject.FindGameObjectsWithTag("Spawners");
+        for(int i = 0; i < sp.Length; i++){
+            sp[i].SetActive(false);
+        }
     }
 
     // Update is called once per frame
@@ -18,20 +21,15 @@ public class oleadas : MonoBehaviour
     {
         if(GameObject.FindGameObjectsWithTag("MeleeEnemy").Length <= 0){
             noenemies = true;
+            for(int i = 0; i < sp.Length; i++){
+            sp[i].SetActive(true);
         }
-        spawn();
+        };
         //Debug.Log(GameObject.FindGameObjectsWithTag("MeleeEnemy").Length);
         //Debug.Log(noenemies);
         
         
     }
 
-    void spawn(){
-        if(noenemies){
-            noenemies = false;
-            
-            GameObject enemyClone = Instantiate(enemytype);
-        }
-
-    }
+    
 }
