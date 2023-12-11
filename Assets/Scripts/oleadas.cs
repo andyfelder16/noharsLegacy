@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class oleadas : MonoBehaviour
 {
-    [SerializeField] private int waves = 1;
+    public enum wState {siguiente, max};
+
+    public wState wave = wState.siguiente;
     
     public GameObject[] sp;
     void Start()
@@ -22,12 +24,14 @@ public class oleadas : MonoBehaviour
     {
         if(GameObject.FindGameObjectsWithTag("MeleeEnemy").Length <= 0){
            
-           for(int i = 0; i < waves; i++){
+                sp[(int) wState.siguiente].SetActive(true);
+
+           /*for(int i = 0; i < waves; i++){
                 Debug.Log("prueba " + i);
                 sp[i].SetActive(true);
 
             }
-            waves++;
+            waves++;*/
             
         }
         
