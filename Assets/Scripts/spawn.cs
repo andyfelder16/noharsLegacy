@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class spawn : MonoBehaviour
 {
     [SerializeField] private int cantidade;
@@ -25,7 +26,8 @@ public class spawn : MonoBehaviour
      void spawnE(){
         
             
-            GameObject enemyClone = Instantiate(enemytype, transform);
+            GameObject enemyClone = Instantiate(enemytype, GetComponent<Transform>().position, Quaternion.identity);
+            //GetComponent<Transform>()
        
 
     }

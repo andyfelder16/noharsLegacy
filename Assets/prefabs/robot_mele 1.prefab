@@ -392,7 +392,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: e2a8886aa917a454096e86426240c666, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e2a8886aa917a454096e86426240c666, type: 3}
       propertyPath: m_LocalScale.x
@@ -527,10 +527,10 @@ PrefabInstance:
       addedObject: {fileID: 5267704080152627580}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e2a8886aa917a454096e86426240c666, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 7974291408046026638}
+      addedObject: {fileID: 9056899124734000244}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e2a8886aa917a454096e86426240c666, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 9056899124734000244}
+      addedObject: {fileID: 7974291408046026638}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e2a8886aa917a454096e86426240c666, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8681116640342592326}
@@ -644,7 +644,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 2807021938184203443}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 2
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -657,20 +657,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &7974291408046026638
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2807021938184203443}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19d1994c4cdc45a4aaf5c8a1c3ff7e47, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agent: {fileID: 5267704080152627580}
-  target: {fileID: 6400681670683732917, guid: ebfa42b7f9e20394991c430105a9bfe1, type: 3}
 --- !u!114 &9056899124734000244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -686,6 +672,19 @@ MonoBehaviour:
   target: {fileID: 9198118788809704801, guid: 0f15290c8e8f3d74298090381b225b50, type: 3}
   seguimientoRango: 20
   velocidadMovimiento: 10
+--- !u!114 &7974291408046026638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2807021938184203443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19d1994c4cdc45a4aaf5c8a1c3ff7e47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agent: {fileID: 0}
 --- !u!95 &8681116640342592326
 Animator:
   serializedVersion: 5

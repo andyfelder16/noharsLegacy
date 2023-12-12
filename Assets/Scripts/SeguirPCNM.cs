@@ -9,6 +9,7 @@ public class SeguirPCNM : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        agent = GetComponent<NavMeshAgent>();
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
